@@ -35,59 +35,54 @@ python NScamera.py
 5. Press `q` to quit the video window.
 
 ## 3. Control & Simulation
-### `control.py`:
-- Starts a server (TCP socket) that listens for incoming traffic data from `simulation.py`.
-- Processes the data, calculates the appropriate traffic light timings, and sends the results (including red times) to the Arduino via serial.
+- `control.py`:
+  - Starts a server (TCP socket) that listens for incoming traffic data from `simulation.py`.
+  - Processes the data, calculates the appropriate traffic light timings, and sends the results (including red times) to the Arduino via serial.
 
-### `simulation.py`:
-Simulates traffic flow at an intersection using Pygame.
-Generates vehicle data (counts per lane) and sends it to `control.py`.
-Receives updated signal timings and applies them in the simulation environment.
+- `simulation.py`:
+  - Simulates traffic flow at an intersection using Pygame.
+  - Generates vehicle data (counts per lane) and sends it to `control.py`.
+  - Receives updated signal timings and applies them in the simulation environment.
 
 ## Steps to Run
 1. Start the Control Script:
-  ```bash
-  python control.py
-  ```
-The script will prompt you to enter the Arduino COM port (e.g., `COM4` on Windows, `/dev/ttyUSB0` on Linux).
-The server then waits for data from `simulation.py`.
+```bash
+python control.py
+```
+- The script will prompt you to enter the Arduino COM port (e.g., `COM4` on Windows, `/dev/ttyUSB0` on Linux).
+- The server then waits for data from `simulation.py`.
 
 2. Start the Simulation:
-  ```bash
-  python simulation.py
-  ```
-The simulation window opens, showing the intersection, vehicles, and traffic signals.
-It sends traffic data to `control.py`, which in turn computes new red/green light durations and sends them to the Arduino.
+```bash
+python simulation.py
+```
+- The simulation window opens, showing the intersection, vehicles, and traffic signals.
+- It sends traffic data to `control.py`, which in turn computes new red/green light durations and sends them to the Arduino.
 
 3. Observe:
+- You can see real-time changes in the Pygame window.
+- The Arduino traffic lights should update accordingly if connected correctly.
 
-You can see real-time changes in the Pygame window.
-The Arduino traffic lights should update accordingly if connected correctly.
-4. Requirements
-Create a file named requirements.txt (for example) with the following typical dependencies (adjust as needed):
-
-opencv-python
-numpy
-pygame
-ultralytics
-pyserial
+## 4. Requirements
 To install these in one command:
-
-bash
+```bash
 pip install -r requirements.txt
-5. Finding the Arduino COM Port
-On Windows, open the Device Manager and check Ports (COM & LPT) to see which COM port the Arduino is connected to (e.g., COM3, COM4, etc.).
-On Linux or Mac, the port might be something like /dev/ttyUSB0 or /dev/ttyACM0.
-You will be prompted for this port when running control.py. Enter the exact name of the port.
+```
+
+## 5. Finding the Arduino COM Port
+- On Windows, open the Device Manager and check Ports (COM & LPT) to see which COM port the Arduino is connected to (e.g., `COM3`, `COM4`, etc.).
+- On Linux or Mac, the port might be something like `/dev/ttyUSB0` or `/dev/ttyACM0`.
+You will be prompted for this port when running `control.py`. Enter the exact name of the port.
 
 6. Running Python Scripts
 In general, to run any Python file in this project:
 
-Open a terminal in the final folder (or navigate there via cd).
-Use the command:
-bash
+1. Open a terminal in the final folder (or navigate there via cd).
+2. Use the command:
+```bash
 python <script_name>.py
+```
 For example:
-bash
+```bash
 python NScamera.py
-
+```
