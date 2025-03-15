@@ -63,6 +63,7 @@ python simulation.py
 - You can see real-time changes in the Pygame window.
 - The Arduino traffic lights should update accordingly if connected correctly.
 
+
 ## 4. Requirements
 All required Python packages are listed in the `requirements.txt` file. To install them all in one command, simply open a terminal in the project’s root folder and run:
 ```bash
