@@ -64,7 +64,7 @@ python simulation.py
 - The Arduino traffic lights should update accordingly if connected correctly.
 
 ## 4. Requirements
-To install these in one command:
+All required Python packages are listed in the `requirements.txt` file. To install them all in one command, simply open a terminal in the project’s root folder and run:
 ```bash
 pip install -r requirements.txt
 ```
@@ -74,10 +74,9 @@ pip install -r requirements.txt
 - On Linux or Mac, the port might be something like `/dev/ttyUSB0` or `/dev/ttyACM0`.
 You will be prompted for this port when running `control.py`. Enter the exact name of the port.
 
-6. Running Python Scripts
+## 6. Running Python Scripts
 In general, to run any Python file in this project:
-
-1. Open a terminal in the final folder (or navigate there via cd).
+1. Open a terminal in the `final` folder (or navigate there via `cd`).
 2. Use the command:
 ```bash
 python <script_name>.py
