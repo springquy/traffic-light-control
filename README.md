@@ -22,7 +22,7 @@ There are two scripts for AI-based vehicle detection, each designed for a differ
 
 **To run either script:**
 1. Make sure you have the necessary Python libraries installed (see [Requirements](#4-Requirements)).
-2. Open a terminal/command prompt in the `final` folder.
+2. Open a terminal/command prompt in the `traffic-light-control-main` folder.
 3. Run:
 ```bash
 python EWcamera.py
