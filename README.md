@@ -24,15 +24,15 @@ There are two scripts for AI-based vehicle detection, each designed for a differ
 1. Make sure you have the necessary Python libraries installed (see [Requirements](#requirements)).
 2. Open a terminal/command prompt in the `final` folder.
 3. Run:
-   ```bash
-   python EWcamera.py
-   ```
+```bash
+python EWcamera.py
+```
 or
-  ```bash
-  python NScamera.py
-  ```
+```bash
+python NScamera.py
+```
 4. The script will attempt to open the corresponding MP4 file (e.g., EWcamera.mp4 or NScamera.mp4) and show detections in real-time.
-5 Press `q` to quit the video window.
+5. Press `q` to quit the video window.
 
 ## 3. Control & Simulation
 ### `control.py`:
