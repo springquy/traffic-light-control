@@ -77,7 +77,7 @@ You will be prompted for this port when running `control.py`. Enter the exact na
 
 ## 6. Running Python Scripts
 In general, to run any Python file in this project:
-1. Open a terminal in the `final` folder (or navigate there via `cd`).
+1. Open a terminal in the `traffic-light-control-main` folder (or navigate there via `cd`).
 2. Use the command:
 ```bash
 python <script_name>.py
