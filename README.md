@@ -2,14 +2,12 @@
 AI-powered traffic light system that dynamically adjusts signal timing based on real-time vehicle density, reducing congestion and improving urban mobility.
 
 This repository contains:
-
 1. **Arduino code** for controlling traffic lights using shift registers and 7-segment displays (`arduino.ino`).
 2. **AI-based vehicle detection** scripts (`EWcamera.py` and `NScamera.py`) using YOLOv8 to count vehicles in different directions.
 3. **Simulation** code (`simulation.py`) that generates traffic flow data and sends it to a controller script (`control.py`) for calculating traffic light timings.
 4. **Images** and **video** files used for the simulation and AI detection demos.
 
 ## 1. Arduino Setup
-
 - **File:** `arduino/arduino.ino`  
 - **Purpose:** Controls the physical traffic lights via shift registers and 7-segment displays.  
 - **Instructions:**
@@ -18,59 +16,56 @@ This repository contains:
   3. Upload the code to your Arduino board.
 
 ## 2. AI Vehicle Detection (Camera Scripts)
-
 There are two scripts for AI-based vehicle detection, each designed for a different video or perspective:
-
 - **`EWcamera.py`**: Detects vehicles traveling East-West.  
 - **`NScamera.py`**: Detects vehicles traveling North-South.
 
 **To run either script:**
-
 1. Make sure you have the necessary Python libraries installed (see [Requirements](#requirements)).
 2. Open a terminal/command prompt in the `final` folder.
 3. Run:
    ```bash
    python EWcamera.py
+   ```
 or
-
   ```bash
   python NScamera.py
+  ```
+4. The script will attempt to open the corresponding MP4 file (e.g., EWcamera.mp4 or NScamera.mp4) and show detections in real-time.
+5 Press `q` to quit the video window.
 
-The script will attempt to open the corresponding MP4 file (e.g., EWcamera.mp4 or NScamera.mp4) and show detections in real-time.
-Press q to quit the video window.
-3. Control & Simulation
-control.py:
+## 3. Control & Simulation
+### `control.py`:
+- Starts a server (TCP socket) that listens for incoming traffic data from `simulation.py`.
+- Processes the data, calculates the appropriate traffic light timings, and sends the results (including red times) to the Arduino via serial.
 
-Starts a server (TCP socket) that listens for incoming traffic data from simulation.py.
-Processes the data, calculates the appropriate traffic light timings, and sends the results (including red times) to the Arduino via serial.
-simulation.py:
-
+### `simulation.py`:
 Simulates traffic flow at an intersection using Pygame.
-Generates vehicle data (counts per lane) and sends it to control.py.
+Generates vehicle data (counts per lane) and sends it to `control.py`.
 Receives updated signal timings and applies them in the simulation environment.
-Steps to Run
-Start the Control Script:
 
-bash
-Sao chép
-python control.py
-The script will prompt you to enter the Arduino COM port (e.g., COM4 on Windows, /dev/ttyUSB0 on Linux).
-The server then waits for data from simulation.py.
-Start the Simulation:
+## Steps to Run
+1. Start the Control Script:
+  ```bash
+  python control.py
+  ```
+The script will prompt you to enter the Arduino COM port (e.g., `COM4` on Windows, `/dev/ttyUSB0` on Linux).
+The server then waits for data from `simulation.py`.
 
-bash
-Sao chép
-python simulation.py
+2. Start the Simulation:
+  ```bash
+  python simulation.py
+  ```
 The simulation window opens, showing the intersection, vehicles, and traffic signals.
-It sends traffic data to control.py, which in turn computes new red/green light durations and sends them to the Arduino.
-Observe:
+It sends traffic data to `control.py`, which in turn computes new red/green light durations and sends them to the Arduino.
+
+3. Observe:
 
 You can see real-time changes in the Pygame window.
 The Arduino traffic lights should update accordingly if connected correctly.
 4. Requirements
 Create a file named requirements.txt (for example) with the following typical dependencies (adjust as needed):
 
-Sao chép
 opencv-python
 numpy
 pygame
