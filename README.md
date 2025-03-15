@@ -52,14 +52,14 @@ python control.py
 - The script will prompt you to enter the Arduino COM port (e.g., `COM4` on Windows, `/dev/ttyUSB0` on Linux).
 - The server then waits for data from `simulation.py`.
 
-2. Start the Simulation:
+### 2. Start the Simulation:
 ```bash
 python simulation.py
 ```
 - The simulation window opens, showing the intersection, vehicles, and traffic signals.
 - It sends traffic data to `control.py`, which in turn computes new red/green light durations and sends them to the Arduino.
 
-3. Observe:
+### 3. Observe:
 - You can see real-time changes in the Pygame window.
 - The Arduino traffic lights should update accordingly if connected correctly.
 
