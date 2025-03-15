@@ -21,7 +21,7 @@ There are two scripts for AI-based vehicle detection, each designed for a differ
 - **`NScamera.py`**: Detects vehicles traveling North-South.
 
 **To run either script:**
-1. Make sure you have the necessary Python libraries installed (see [Requirements](#requirements)).
+1. Make sure you have the necessary Python libraries installed (see [Requirements](#4-Requirements)).
 2. Open a terminal/command prompt in the `final` folder.
 3. Run:
 ```bash
@@ -45,7 +45,7 @@ python NScamera.py
   - Receives updated signal timings and applies them in the simulation environment.
 
 ## Steps to Run
-1. Start the Control Script:
+### 1. Start the Control Script:
 ```bash
 python control.py
 ```
